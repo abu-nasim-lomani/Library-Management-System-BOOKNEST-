@@ -113,7 +113,13 @@ async Task SeedRolesAndAdminUser(RoleManager<IdentityRole> roleManager, UserMana
 
     if (adminUser == null)
     {
-        adminUser = new User { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
+        adminUser = new User
+        {
+            UserName = adminEmail,
+            Email = adminEmail,
+            EmailConfirmed = true,
+            FullName = "Admin User" // Provide a value for FullName
+        };
         await userManager.CreateAsync(adminUser, adminPassword);
     }
 
@@ -121,6 +127,7 @@ async Task SeedRolesAndAdminUser(RoleManager<IdentityRole> roleManager, UserMana
     {
         await userManager.AddToRoleAsync(adminUser, "Admin");
     }
+
 }
 
 

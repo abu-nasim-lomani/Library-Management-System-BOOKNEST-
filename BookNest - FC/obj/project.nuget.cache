@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6xTF5WhEwRk=",
+  "dgSpecHash": "FNSWsNWB7E8=",
   "success": true,
-  "projectFilePath": "F:\\29.11.24\\BookNest-main\\BookNest - FC\\BookNest.csproj",
+  "projectFilePath": "F:\\29.11.24\\BookNest-main\\Library\\BookNest - FC\\BookNest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Shumon\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Shumon\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

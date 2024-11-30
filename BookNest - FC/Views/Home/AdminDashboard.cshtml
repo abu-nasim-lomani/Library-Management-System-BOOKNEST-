@@ -1,118 +1,177 @@
 ﻿@model BookNest.ViewModels.AdminDashboardViewModel
 
-<h2>Admin Dashboard</h2>
-
-@if (TempData["SuccessMessage"] != null)
-
-{
-    <div class="alert alert-success">
-        @TempData["SuccessMessage"]
-    </div>
-}
-
-@if (TempData["ErrorMessage"] != null)
-
-{
-    <div class="alert alert-danger">
-        @TempData["ErrorMessage"]
-    </div>
-}
-
 @{
     ViewData["Title"] = "Admin Dashboard";
 }
 
-
-<div class="card-deck mt-5">
-    <div class="card text-center mb-3">
-        <div class="card-body">
-            <a href="/Admin/ReviewRequests" class="btn btn-primary btn-lg btn-block">Review Book Issue Requests</a>
-        </div>
-    </div>
-    <div class="card text-center mb-3">
-        <div class="card-body">
-            <a href="/User" class="btn btn-success btn-lg btn-block">User List</a>
-        </div>
-    </div>
-    <div class="card text-center mb-3">
-        <div class="card-body">
-            <a href="/Admin/UserIssues" class="btn btn-warning btn-lg btn-block">Check Restrictions</a>
-        </div>
-    </div>
-</div>
-
-
-
 <div class="container mt-5">
-    <h2>View Last 24 Hours Issues</h2>
-    <div>
-        <a href="@Url.Action("Last24HoursIssues", "BookIssue")" class="btn btn-primary">View Last 24 Hours Issues</a>
+    <h1 class="text-center">Admin Dashboard</h1>
+
+    @if (TempData["SuccessMessage"] != null)
+
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    
+
+    <br />
+
+    <div class="container mt-5 ">
+        <h2>Issue Statistics</h2>
+        <canvas id="issuesChart" width="400" height="100"></canvas>
     </div>
-</div>
+
+    <script>
+        var ctx = document.getElementById('issuesChart').getContext('2d');
+        var issuesChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['User1', 'User2', 'User3', 'User4'], // Replace with dynamic data
+                datasets: [{
+                    label: 'Books Issued in Last 24 Hours',
+                    data: [12, 19, 3, 5], // Replace with dynamic data
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 
 
-<h2>ADD Book</h2>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModifyBooksModal">
-    Add/Modify Books
-</button>
-
-<!-- The Modal -->
-<div class="modal" id="addModifyBooksModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Add/Modify Books</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <br />
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card text-center shadow mb-3">
+                <div class="card-body">
+                    <a href="/Admin/ReviewRequests" class="btn btn-primary btn-lg btn-block btn-custom">Review Book Issue Requests</a>
+                </div>
             </div>
-
-            <!-- Modal Body -->
-            <div class="modal-body">
-                <form asp-action="AddBook" method="post" class="mb-4">
-                    <div class="form-group">
-                        <label for="Title">Title</label>
-                        <input type="text" class="form-control" id="Title" name="Title" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="Author">Author</label>
-                        <input type="text" class="form-control" id="Author" name="Author" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="Quantity">Quantity</label>
-                        <input type="number" class="form-control" id="Quantity" name="Quantity" required min="1" />
-                    </div>
-                    <button type="submit" class="btn btn-primary">Add Book</button>
-                </form>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center shadow mb-3">
+                <div class="card-body">
+                    <a href="/User" class="btn btn-success btn-lg btn-block btn-custom">User List</a>
+                </div>
             </div>
-
-            <!-- Modal Footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center shadow mb-3">
+                <div class="card-body">
+                    <a href="/Admin/UserIssues" class="btn btn-warning btn-lg btn-block btn-custom">Check Restrictions</a>
+                </div>
             </div>
+        </div>
+    </div>
 
+    <div class="row mb-4 mt-5">
+        <div class="col-md-6">
+            <div class="card text-center shadow mb-3">
+                <div class="card-body">
+                    <h2 class="card-title">View Last 24 Hours Issues</h2>
+                    <a href="@Url.Action("Last24HoursIssues", "BookIssue")" class="btn btn-primary btn-lg btn-block btn-custom">View Last 24 Hours Issues</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card text-center shadow mb-3">
+                <div class="card-body">
+                    <h2 class="card-title">Add/Modify Books</h2>
+                    <button type="button" class="btn btn-primary btn-lg btn-block btn-custom" data-toggle="modal" data-target="#addModifyBooksModal">Add/Modify Books</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Modify Books Modal -->
+    <div class="modal fade" id="addModifyBooksModal" tabindex="-1" role="dialog" aria-labelledby="addModifyBooksModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModifyBooksModalLabel">Add/Modify Books</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form asp-action="AddBook" method="post">
+                        <div class="form-group">
+                            <label for="Title">Title</label>
+                            <input type="text" class="form-control" id="Title" name="Title" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="Author">Author</label>
+                            <input type="text" class="form-control" id="Author" name="Author" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="Quantity">Quantity</label>
+                            <input type="number" class="form-control" id="Quantity" name="Quantity" required min="1" />
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-custom">Add Book</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-custom" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card text-center shadow mb-3">
+                <div class="card-body">
+                    <a href="/hangfire" class="btn btn-secondary btn-lg btn-block btn-custom">Hangfire Test</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-center shadow mb-3">
+                <div class="card-body">
+                    <a href="/Book" class="btn btn-primary btn-lg btn-block btn-custom">Book</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-
-
-<div class="card-deck mt-5">
-    <div class="card text-center mb-3">
-        <div class="card-body">
-            <a href="/hangfire" class="btn btn-secondary btn-lg btn-block ">Hangfire Test</a>
-        </div>
-    </div>
-
-
-    <div class="card text-center mb-3">
-        <div class="card-body">
-            <a href="/Book" class="btn btn-primary btn-lg btn-block">Book</a>
-        </div>
-    </div>
-</div>
-
-
-
-
+<style>
+    .btn-custom {
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .card {
+        border-radius: 15px;
+    }
+</style>
 

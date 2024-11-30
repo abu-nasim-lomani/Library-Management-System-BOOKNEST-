@@ -8771,11 +8771,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\29.11.24\\BookNest-main\\BookNest - FC\\BookNest.csproj",
+      "projectUniqueName": "F:\\29.11.24\\BookNest-main\\Library\\BookNest - FC\\BookNest.csproj",
       "projectName": "BookNest",
-      "projectPath": "F:\\29.11.24\\BookNest-main\\BookNest - FC\\BookNest.csproj",
+      "projectPath": "F:\\29.11.24\\BookNest-main\\Library\\BookNest - FC\\BookNest.csproj",
       "packagesPath": "C:\\Users\\Shumon\\.nuget\\packages\\",
-      "outputPath": "F:\\29.11.24\\BookNest-main\\BookNest - FC\\obj\\",
+      "outputPath": "F:\\29.11.24\\BookNest-main\\Library\\BookNest - FC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Shumon\\AppData\\Roaming\\NuGet\\NuGet.Config",
