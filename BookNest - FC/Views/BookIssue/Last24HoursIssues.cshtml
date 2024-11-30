@@ -1,0 +1,26 @@
+﻿@model IEnumerable<BookNest.Models.BookIssueViewModel>
+
+<div class="container mt-5">
+    <h2>Book Issues in the Last 24 Hours</h2>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>User Name</th>
+                <th>Book Title</th>
+                <th>Issue Date</th>
+                <th>Due Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var issue in Model)
+            {
+                <tr>
+                    <td>@issue.UserName</td>
+                    <td>@issue.BookTitle</td>
+                    <td>@issue.IssueDate.ToShortDateString()</td>
+                    <td>@issue.DueDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
