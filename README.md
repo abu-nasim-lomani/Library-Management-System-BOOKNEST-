@@ -1,82 +1,117 @@
-# "Library-Management-System-BOOKNEST"   Final code in this directory
+# Library-Management-System-BOOKNEST
+Final code in this directory
 
-BookNest
+## Welcome to BookNest
 Welcome to BookNest, a comprehensive and efficient library management system. This application allows users to manage books, issue books, and track issued books effortlessly.
 
-**Table of Contents
-Introduction
-Project Setup
-Admin Credentials
-Features
-Authentication and Authorization
-Admin Dashboard
-Book Management
-Book Issue and Return
-Reporting
-Search Functionality
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Project Setup](#project-setup)
+3. [Admin Credentials](#admin-credentials)
+4. [Features](#features)
+    - [Authentication and Authorization](#authentication-and-authorization)
+    - [Admin Dashboard](#admin-dashboard)
+    - [Book Management](#book-management)
+    - [Book Issue and Return](#book-issue-and-return)
+    - [Reporting](#reporting)
+    - [Search Functionality](#search-functionality)
+5. [Usage](#usage)
+6. [Acknowledgments](#acknowledgments)
 
-
-Usage
-Acknowledgments
-Introduction
+## Introduction
 BookNest is a powerful web-based library management system designed to simplify library management for both administrators and users. With a user-friendly interface and robust features, BookNest makes it easy to manage books, issue and return books, and generate reports.
 
+## Project Setup
 
-# Default Admin Credentials:
-##  Email: Admin@BookNest.com
-## Password: @Shumonbd1@
+To set up the project locally, follow these steps:
 
-Features
-Authentication and Authorization
-User Registration and Login: Users can register and log in.
+1. **Clone the Repository:**
 
-Role-based Access Control: Different roles for administrators and regular users with specific permissions.
+    ```sh
+    git clone https://github.com/abu-nasim-lomani/Library-Management-System-BOOKNEST-.git
+    cd Library-Management-System-BOOKNEST-
+    ```
 
-Admin Dashboard
-Comprehensive Dashboard: Centralized dashboard for administrators to manage all activities.
+2. **Configure Database Connection:**
 
-Book Management: Add, update, and delete books.
+    Open the `appsettings.json` file and update the `ConnectionStrings` section to match your SQL Server configuration:
 
-Book Management
-Add Book: Add new books to the library.
+    ```json
+    "ConnectionStrings": {
+        "BookNestDB": "Server=DESKTOP-PM9D3IT;Database=BookNestD02;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=True;Connection Timeout=30;"
+    }
+    ```
 
-Update Book: Update existing book details.
+3. **Update Database:**
 
-Delete Book: Delete books from the library.
+    Open a terminal in the project directory and run the following commands to update the database:
 
-View Book List: View and search through the list of all books.
+    ```sh
+    dotnet ef database update
+    ```
 
-Book Issue and Return
-Request Book Issue: Users can request to issue books.
+4. **Build and Run the Solution:**
 
-Admin Issue Book: Administrators can issue books to users.
+    - Clean the Solution:
+        ```sh
+        dotnet clean
+        ```
 
-Book Return: Users can return issued books and administrators can manage returns.
+    - Build the Solution:
+        ```sh
+        dotnet build
+        ```
 
-Reporting
-Last 24 Hours Issues: View a list of books issued in the last 24 hours.
+    - Run the Application:
+        ```sh
+        dotnet run
+        ```
 
-Custom Reports: Generate reports for books issued within a specific time frame.
+## Admin Credentials
+Default Admin Credentials:
 
-Search Functionality
-Search Books: Users can easily search for books.
+- **Email:** Admin@BookNest.com
+- **Password:** @Shumonbd1@
 
-Usage
-View Last 24 Hours Issues:
+## Features
 
-Log in as an admin.
+### Authentication and Authorization
+- **User Registration and Login:** Users can register and log in.
+- **Role-based Access Control:** Different roles for administrators and regular users with specific permissions.
 
-Navigate to the admin dashboard.
+### Admin Dashboard
+- **Comprehensive Dashboard:** Centralized dashboard for administrators to manage all activities.
+- **Book Management:** Add, update, and delete books.
 
-Click the "View Last 24 Hours Issues" button.
+### Book Management
+- **Add Book:** Add new books to the library.
+- **Update Book:** Update existing book details.
+- **Delete Book:** Delete books from the library.
+- **View Book List:** View and search through the list of all books.
 
-Book Management:
+### Book Issue and Return
+- **Request Book Issue:** Users can request to issue books.
+- **Admin Issue Book:** Administrators can issue books to users.
+- **Book Return:** Users can return issued books and administrators can manage returns.
 
-Log in as an admin.
+### Reporting
+- **Last 24 Hours Issues:** View a list of books issued in the last 24 hours.
+- **Custom Reports:** Generate reports for books issued within a specific time frame.
 
-Navigate to the book list.
+### Search Functionality
+- **Search Books:** Users can easily search for books.
 
-Use the "Update" or "Delete" buttons to manage books.
+## Usage
 
-Acknowledgments
+### View Last 24 Hours Issues:
+- Log in as an admin.
+- Navigate to the admin dashboard.
+- Click the "View Last 24 Hours Issues" button.
+
+### Book Management:
+- Log in as an admin.
+- Navigate to the book list.
+- Use the "Update" or "Delete" buttons to manage books.
+
+## Acknowledgments
 This project was developed to make library management simple and efficient. Special thanks to all contributors who helped build and improve this project.
