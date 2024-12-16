@@ -1,4 +1,4 @@
-## "Library-Management-System-BOOKNEST"   Final code in this directory
+# "Library-Management-System-BOOKNEST"   Final code in this directory
 
 BookNest
 Welcome to BookNest, a comprehensive and efficient library management system. This application allows users to manage books, issue books, and track issued books effortlessly.
@@ -22,9 +22,9 @@ Introduction
 BookNest is a powerful web-based library management system designed to simplify library management for both administrators and users. With a user-friendly interface and robust features, BookNest makes it easy to manage books, issue and return books, and generate reports.
 
 
-## Default Admin Credentials:
+# Default Admin Credentials:
 ##  Email:Admin@BookNest.com
-# Password: @*Shumonbd1*@ 
+## Password: @*Shumonbd1*@ 
 
 Features
 Authentication and Authorization
