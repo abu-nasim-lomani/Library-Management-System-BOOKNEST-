@@ -23,8 +23,8 @@ BookNest is a powerful web-based library management system designed to simplify 
 
 
 # Default Admin Credentials:
-##  Email:Admin@BookNest.com
-## Password:"@*Shumonbd1*@"
+##  Email: Admin@BookNest.com
+## Password: @Shumonbd1@
 
 Features
 Authentication and Authorization
