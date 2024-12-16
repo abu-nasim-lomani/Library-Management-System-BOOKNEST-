@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BookNest.Models.BookIssue>
+
+<div class="container mt-5">
+    <h2>Book Issues</h2>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Book Title</th>
+                <th>Issue Date</th>
+                <th>Due Date</th>
+                <th>Return Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var issue in Model)
+
+                {
+                    <tr>
+                        <td>@(issue.Book != null ? issue.Book.Title : "N/A")</td>
+                        <td>@issue.IssueDate.ToShortDateString()</td>
+                        <td>@issue.DueDate.ToShortDateString()</td>
+                        <td>@(issue.ReturnDate.HasValue ? issue.ReturnDate.Value.ToShortDateString() : "Not Returned")</td>
+                        <td>
+                            @if (!issue.IsReturned)
+                            {
+                                <form asp-action="ReturnBook" method="post">
+                                    <input type="hidden" name="bookIssueId" value="@issue.Id" />
+                                    <button type="submit" class="btn btn-primary">Return</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5">No book issues found.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
