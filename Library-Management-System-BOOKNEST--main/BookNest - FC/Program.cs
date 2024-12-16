@@ -104,7 +104,7 @@ async Task SeedRolesAndAdminUser(RoleManager<IdentityRole> roleManager, UserMana
     }
 
     var adminEmail = "Admin@BookNest.com";
-    var adminPassword = "@*Shumonbd1*@";
+    var adminPassword = "@Shumonbd1@";
     var adminUser = await userManager.FindByEmailAsync(adminEmail);
 
     //  Create admin user if it doesn't exist
